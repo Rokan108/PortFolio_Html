@@ -1,10 +1,9 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import { Search, User, Menu, X } from "lucide-react";
 import akash from "../assets/logo/Akash-Gupta-LOGO-white.svg";
 import { GradientButton } from '@/components/lightswind/gradient-button'
-import Contact from "@/sections/Contact";
 import "../styles/global.css";
-const Navbar: FC = () => {
+const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (

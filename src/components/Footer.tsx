@@ -1,8 +1,8 @@
-import { FC, useState, useEffect } from "react";
+import { useState } from "react";
 import { Github, Instagram, Sun, Moon,Linkedin  } from "lucide-react";
 import akash from "../assets/logo/Akash-Gupta-LOGO-white.svg";
-import akash1 from "../assets/logo/Akash-Gupta-LOGO-Black.svg";
-const Footer: FC = () => {
+
+const Footer = () => {
   const [darkMode, setDarkMode] = useState(true);
 
   // Toggle dark/light mode (updates root CSS vars)
