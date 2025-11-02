@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Github, Instagram, Sun, Moon,Linkedin  } from "lucide-react";
-import akash from "../assets/logo/Akash-Gupta-LOGO-white.svg";
+import akash from "../assets/logo/white.svg";
 
 const Footer = () => {
   const [darkMode, setDarkMode] = useState(true);

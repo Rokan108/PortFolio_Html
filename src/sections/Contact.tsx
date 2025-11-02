@@ -168,7 +168,7 @@ const Contact: React.FC = () => {
                 {/* Return to Homepage Link */}
                 <div className="text-center mt-8">
                     <a
-                        href="/"
+                        href="#hero"
                         className="inline-block transition-all duration-300 ease-in-out"
                         style={{ color: 'var(--color-accent)' }}
                         onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-light)'}

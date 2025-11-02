@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import LiquidMetal from "@/components/new/LiquidMetal"; // 👈 your existing component
+import LiquidMetal from "../components/new/LiquidMetal"; // 👈 your existing component
 
 const roles = [
   "💻 Web Developer",
@@ -17,7 +17,7 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentRole((prev) => (prev + 1) % roles.length);
-    }, 1000); // ⏱ change every 2.5 seconds
+    }, 1000); // ⏱ change every 1.0 seconds
     return () => clearInterval(interval);
   }, []);
 
