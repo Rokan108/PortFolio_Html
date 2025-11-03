@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 // Placeholder LiquidMetal component - replace with your actual component
 import { LiquidMetal as LiquidMetal1 } from "@paper-design/shaders-react";
-import { Circle } from 'lucide-react';
 const Contact: React.FC = () => {
     const [formData, setFormData] = useState({
         email: '',

@@ -1,16 +1,35 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
+    /* Basic project setup */
+    "target": "ES2020",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "noEmitOnError": false,
-    "verbatimModuleSyntax": false,
-    "baseUrl": ".",
+    "resolveJsonModule": true,
+
+    /* React + Tailwind + Framer Motion */
+    "strict": true,
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+
+    /* Path aliases (for @/...) */
+    "baseUrl": "src",
     "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
+      "@/*": ["*"]
+    },
+
+    /* Types that must be available globally */
+    "types": ["node", "react", "react-dom"],
+
+    /* Disable the new strict import rule for convenience */
+    "verbatimModuleSyntax": false
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }

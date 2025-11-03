@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import  { type FC, useEffect, useState } from "react";
 import ElectricBorder from "./reactbit/ElectricBorder"; // ⚡ Make sure this path is correct
 
 interface TechStackCardProps {
@@ -8,7 +8,7 @@ interface TechStackCardProps {
   startDate: string;       // Starting date
 }
 
-const TechStackCard: FC<TechStackCardProps> = ({ icon, image, title, startDate }) => {
+const TechStackCard: FC<TechStackCardProps> = ({ image, title, startDate }) => {
   const [levels, setLevels] = useState<number[]>([]);
   const [daysSinceStart, setDaysSinceStart] = useState<number>(0);
 

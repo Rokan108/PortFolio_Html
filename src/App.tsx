@@ -1,8 +1,7 @@
-import React from 'react'
+
 import Navbar from './components/Navbar'
 import DarkVeil from './components/reactbit/DarkVeil'
 import Footer from './components/Footer'
-import LiquidMetal from './components/new/LiquidMetal'
 import ScrollToTopButton from './components/ScrollToTopButton'
 import Contact from './sections/Contact'
 import TechStackSection from './sections/TechStackSection'

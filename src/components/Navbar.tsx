@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Search, User, Menu, X } from "lucide-react";
 import akash from "../assets/logo/white.svg";
 import "../styles/global.css";
-import ElectricBorder from "./reactbit/ElectricBorder";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
