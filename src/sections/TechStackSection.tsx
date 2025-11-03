@@ -1,12 +1,4 @@
 import { useState,useRef } from "react";
-import {
-  Code,
-  Database,
-  Globe,
-  Cpu,
-  MessageCircle,
-  Bot,
-} from "lucide-react";
 import TechStackCard from "../components/TechStackCard";
 
 // Logos for non-lucide techs

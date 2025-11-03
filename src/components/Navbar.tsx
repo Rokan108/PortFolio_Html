@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Search, User, Menu, X } from "lucide-react";
 import akash from "../assets/logo/white.svg";
-import { GradientButton } from '@/components/lightswind/gradient-button'
 import "../styles/global.css";
+import ElectricBorder from "./reactbit/ElectricBorder";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -59,9 +59,9 @@ const Navbar = () => {
             <button className="flex items-center space-x-1 border border-[var(--color-primary)] p-1 rounded-full px-2 transition-all duration-300 ease-in-out">
               <User size={22} />
               <a href="#contact">
-              <span><GradientButton>
-                Hire Me!
-              </GradientButton></span>
+                <span>
+                  Hire Me!
+                </span>
               </a>
             </button>
           </div>
@@ -96,14 +96,14 @@ const Navbar = () => {
                   />
                   <Search size={16} className="ml-2 text-gray-400" />
                 </div>
-                <button className="flex items-center space-x-1 border border-[var(--color-primary)] p-1 rounded-full px-2 transition-all duration-300 ease-in-out">
-              <User size={22} />
-              <a href="#contact">
-              <span><GradientButton>
-                Hire Me!
-              </GradientButton></span>
-              </a>
-            </button>
+                  <button className="flex items-center space-x-1 border border-[var(--color-primary)] p-1 rounded-full px-2 transition-all duration-300 ease-in-out">
+                    <User size={22} />
+                    <a href="#contact">
+                      <span>
+                        Hire Me!
+                      </span>
+                    </a>
+                  </button>
               </div>
             </li>
           </ul>

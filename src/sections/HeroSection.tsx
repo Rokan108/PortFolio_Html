@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import LiquidMetal from "../components/new/LiquidMetal"; // 👈 your existing component
-
+import SplitText from "@/components/reactbit/SplitText";
 const roles = [
   "💻 Web Developer",
   "⚡ Frontend Developer",
@@ -30,7 +30,7 @@ const HeroSection = () => {
 
       {/* Greeting */}
       <h1 className="text-4xl sm:text-5xl font-bold text-[var(--color-primary-light)] mb-2 leading-tight">
-        👋 Hello!{" "}
+        <SplitText text="👋 Hello!"/>
         <span className="block text-[var(--color-accent)]">I’m Akash Gupta</span>
       </h1>
 
