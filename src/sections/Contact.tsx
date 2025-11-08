@@ -39,31 +39,6 @@ const Contact: React.FC = () => {
                     {/* Circle acts as the background frame */}
                     <div className="relative w-[120px] h-[120px] rounded-full border-4 border-[var(--color-primary)] flex items-center justify-center bg-[var(--color-surface)] shadow-lg transition-all duration-300 hover:shadow-[0_0_20px_var(--color-primary-light)]">
                         {/* Liquid Metal logo inside the circle */}
-                        <LiquidMetal1
-                            image="https://workers.paper.design/file-assets/01K91Q1VENN7B714TBXKHJM7WZ/01K91QDAQ15YFXWVN2Z46A9ZVR.svg"
-                            speed={1.2}
-                            colorBack="#00000000"
-                            colorTint="#ffffff"
-                            softness={0.25}
-                            repetition={2.96}
-                            shiftRed={0.3}
-                            shiftBlue={0}
-                            distortion={0.21}
-                            contour={0.25}
-                            scale={0.67}
-                            rotation={0}
-                            shape="diamond"
-                            angle={70}
-                            style={{
-                                backgroundColor: "transparent",
-                                height: "100px", // slightly smaller than circle
-                                width: "100px",
-                                position: "absolute",
-                                top: "50%",
-                                left: "50%",
-                                transform: "translate(-50%, -50%)", // centers perfectly
-                            }}
-                        />
                     </div>
                 </div>
 

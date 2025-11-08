@@ -1,4 +1,4 @@
-import { useState,useRef } from "react";
+import { useState, useRef } from "react";
 import TechStackCard from "../components/TechStackCard";
 
 // Logos for non-lucide techs
@@ -12,21 +12,27 @@ import cppLogo from "../assets/logo/cpp.svg";
 import chatgptLogo from "../assets/logo/chatgpt.svg";
 import claudeLogo from "../assets/logo/claude.svg";
 import reactbitLogo from "../assets/logo/reactbit.svg";
-import nodejsLogo from "../assets/logo/nodejs.svg"
-// Pagination components (from your code)
+import nodejsLogo from "../assets/logo/nodejs.svg";
+
+// Pagination components
 import {
   Pagination,
   PaginationContent,
   PaginationItem,
-  PaginationLink,
   PaginationPrevious,
   PaginationNext,
-  PaginationEllipsis,
 } from "@/components/ui/pagination";
 
+interface TechStack {
+  image: string;
+  title: string;
+  startDate: string;
+}
+
 const TechStackSection = () => {
-    const sectionRef = useRef<HTMLDivElement>(null);
-  const techStacks = [
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  const techStacks: TechStack[] = [
     { image: htmlLogo, title: "HTML", startDate: "2023-01-01" },
     { image: cssLogo, title: "CSS", startDate: "2023-01-07" },
     { image: jsLogo, title: "JavaScript", startDate: "2023-08-14" },
@@ -43,18 +49,13 @@ const TechStackSection = () => {
 
   const itemsPerPage = 3;
   const [currentPage, setCurrentPage] = useState(1);
-
   const totalPages = Math.ceil(techStacks.length / itemsPerPage);
+
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentItems = techStacks.slice(startIndex, startIndex + itemsPerPage);
 
-const scrollToTop = () => {
-    if (sectionRef.current) {
-      sectionRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+  const scrollToTop = () => {
+    sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const handleNext = () => {
@@ -71,14 +72,12 @@ const scrollToTop = () => {
     }
   };
 
-  const handlePageClick = (page: number) => {
-    setCurrentPage(page);
-    scrollToTop();
-  };
-
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-[var(--color-text)] px-4 py-12">
-      <h1 className="text-3xl font-bold text-[var(--color-primary-light)] mb-8">
+    <section
+      ref={sectionRef}
+      className="min-h-screen flex flex-col items-center justify-center text-(--color-text) px-4 py-12"
+    >
+      <h1 className="text-3xl font-bold text-(--color-primary-light) mb-8 text-center">
         My Tech Stack
       </h1>
 
@@ -94,9 +93,9 @@ const scrollToTop = () => {
         ))}
       </div>
 
-      {/* Pagination */}
+      {/* Only Previous & Next buttons */}
       <Pagination className="mt-8">
-        <PaginationContent>
+        <PaginationContent className="flex gap-6">
           <PaginationItem>
             <PaginationPrevious
               href="#"
@@ -104,25 +103,13 @@ const scrollToTop = () => {
                 e.preventDefault();
                 handlePrevious();
               }}
+              className={`transition ${
+                currentPage === 1
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:scale-105 hover:text-[var(--color-primary)]"
+              }`}
             />
           </PaginationItem>
-
-          {Array.from({ length: totalPages }, (_, i) => (
-            <PaginationItem key={i}>
-              <PaginationLink
-                href="#"
-                isActive={currentPage === i + 1}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handlePageClick(i + 1);
-                }}
-              >
-                {i + 1}
-              </PaginationLink>
-            </PaginationItem>
-          ))}
-
-          {currentPage < totalPages && <PaginationEllipsis />}
 
           <PaginationItem>
             <PaginationNext
@@ -131,6 +118,11 @@ const scrollToTop = () => {
                 e.preventDefault();
                 handleNext();
               }}
+              className={`transition ${
+                currentPage === totalPages
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:scale-105 hover:text-[var(--color-primary)]"
+              }`}
             />
           </PaginationItem>
         </PaginationContent>

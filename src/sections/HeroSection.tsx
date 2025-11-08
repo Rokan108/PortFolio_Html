@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import LiquidMetal from "../components/new/LiquidMetal"; 
+
 import SplitText from "@/components/reactbit/SplitText";
 
 const roles = [
@@ -55,7 +55,11 @@ const HeroSection = () => {
 
       {/* 💠 Right (or Bottom on mobile) - Liquid Metal Logo */}
       <div className="flex justify-center items-center sm:justify-end sm:w-1/2 w-full">
-        <LiquidMetal />
+        <img
+              src={"/assets/logo/white.svg"}
+              alt={"Akash Gupta"}
+              className="object-contain w-12 h-12"
+            />
       </div>
     </section>
   );

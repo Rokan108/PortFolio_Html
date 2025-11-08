@@ -1,4 +1,4 @@
-
+import Projects from './sections/Projects'
 import Navbar from './components/Navbar'
 import DarkVeil from './components/reactbit/DarkVeil'
 import Footer from './components/Footer'
@@ -6,6 +6,7 @@ import ScrollToTopButton from './components/ScrollToTopButton'
 import Contact from './sections/Contact'
 import TechStackSection from './sections/TechStackSection'
 import HeroSection from './sections/HeroSection'
+import { Section } from 'lucide-react'
 const App = () => {
   return (
     <>
@@ -18,13 +19,15 @@ const App = () => {
         </div>
         <main className="relative z-10 flex flex-col justify-items-center justify-center py-24 space-y-6">
           <section id='hero'>
-            <HeroSection/>
+            <HeroSection />
           </section>
-          
-          <button className="btn-primary">Explore Projects</button>
-          <TechStackSection/>
+          <section id='projects'>
+            <Projects />
+          </section>
+
+          <TechStackSection />
           <section id='contact'>
-          <Contact />
+            <Contact />
           </section>
         </main>
       </div>
