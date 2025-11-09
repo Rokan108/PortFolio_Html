@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import akash from "@/assets/logo/white.svg"
 import SplitText from "@/components/reactbit/SplitText";
 
 const roles = [
@@ -23,7 +23,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section
+    <section id="hero"
       className="relative flex flex-col-reverse sm:flex-row items-center sm:items-start justify-between 
                  py-16 px-6 sm:px-12 gap-8 overflow-hidden"
     >
@@ -56,9 +56,9 @@ const HeroSection = () => {
       {/* 💠 Right (or Bottom on mobile) - Liquid Metal Logo */}
       <div className="flex justify-center items-center sm:justify-end sm:w-1/2 w-full">
         <img
-              src={"/assets/logo/white.svg"}
+              src={akash}
               alt={"Akash Gupta"}
-              className="object-contain w-12 h-12"
+              className="object-contain w-80 h-80"
             />
       </div>
     </section>

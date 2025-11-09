@@ -80,7 +80,7 @@ const Projects = () => {
   };
 
   return (
-    <section
+    <section id="project"
       className="w-full flex flex-col items-center justify-center py-10 px-3 sm:px-6 lg:px-8 overflow-hidden select-none"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}

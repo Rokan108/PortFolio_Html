@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // Placeholder LiquidMetal component - replace with your actual component
-import { LiquidMetal as LiquidMetal1 } from "@paper-design/shaders-react";
+import akash from "@/assets/logo/white.svg"
 const Contact: React.FC = () => {
     const [formData, setFormData] = useState({
         email: '',
@@ -39,6 +39,8 @@ const Contact: React.FC = () => {
                     {/* Circle acts as the background frame */}
                     <div className="relative w-[120px] h-[120px] rounded-full border-4 border-[var(--color-primary)] flex items-center justify-center bg-[var(--color-surface)] shadow-lg transition-all duration-300 hover:shadow-[0_0_20px_var(--color-primary-light)]">
                         {/* Liquid Metal logo inside the circle */}
+                        <img src={akash} alt="logo"
+                        />
                     </div>
                 </div>
 

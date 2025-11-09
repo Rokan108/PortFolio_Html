@@ -1,5 +1,6 @@
 import React from "react";
 import NotFound from "./NotFound";
+import { ExternalLink, Github } from "lucide-react";
 export const projectList = [
     {
         image: "src/assets/images/portfolio.png",
@@ -21,7 +22,7 @@ export const projectList = [
             "An AI meeting assistant that transcribes and summarizes meetings.",
         status: "Ongoing",
         rating: "9.6",
-        live: "<NotFound/>",
+        live: "",
         github: "",
     },
     {
@@ -144,22 +145,36 @@ const ProjectCard = ({
 
                     {/* Buttons - Visible on All Devices */}
                     <div className="flex gap-3 mt-3 flex-wrap">
-                        <a
-                            href={live}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-full sm:w-auto text-center bg-[var(--color-primary)] text-white px-4 py-2 rounded-lg font-medium hover:bg-[var(--color-primary-dark)] transition"
-                        >
-                            🔗 Live Demo
-                        </a>
-                        <a
-                            href={github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-full sm:w-auto text-center border border-[var(--color-primary)] text-[var(--color-primary)] px-4 py-2 rounded-lg font-medium hover:bg-[var(--color-primary)] hover:text-white transition"
-                        >
-                            💻 GitHub Code
-                        </a>
+                        {live ? (
+                            <a
+                                href={live}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-primary flex items-center gap-2"
+                            >
+                                <ExternalLink size={18} />
+                                Live Demo
+                            </a>
+                        ) : (
+                            <span className="text-sm text-gray-500 italic px-3 py-2 border border-gray-300 rounded-md">
+                                🚧 Project is ongoing
+                            </span>
+                        )}
+                        {github ? (
+                            <a
+                                href={github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-primary flex items-center gap-2"
+                            >
+                                <Github size={18} />
+                                View Code
+                            </a>
+                        ) : (
+                            <span className="text-sm text-gray-500 italic px-3 py-2 border border-gray-300 rounded-md">
+                                🔒 Private Repository
+                            </span>
+                        )}
                     </div>
                 </div>
             </div>

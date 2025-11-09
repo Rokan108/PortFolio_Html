@@ -73,7 +73,7 @@ const TechStackSection = () => {
   };
 
   return (
-    <section
+    <section id="techstack"
       ref={sectionRef}
       className="min-h-screen flex flex-col items-center justify-center text-(--color-text) px-4 py-12"
     >

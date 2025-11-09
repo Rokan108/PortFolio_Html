@@ -4,7 +4,12 @@ import akash from "../assets/logo/white.svg";
 import "../styles/global.css";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const handleScroll = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <nav className="bg-(--color-surface) text-(--color-text) shadow-lg fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,16 +32,24 @@ const Navbar = () => {
           {/* <SparkleNavbar> */}
           <div>
             <ul className="hidden md:flex space-x-6 text-sm font-medium border border-[var(--color-primary)] p-1 rounded-full px-7 transition-all duration-300 ease-in-out">
-              <li className="cursor-pointer px-4 py-2 rounded-full transition-all duration-300 ease-in-out hover:bg-[var(--color-primary-light)] hover:text-[var(--color-text)]">
+              <li
+              onClick={() => handleScroll("hero")}
+              className="cursor-pointer px-4 py-2 rounded-full transition-all duration-300 ease-in-out hover:bg-[var(--color-primary-light)] hover:text-[var(--color-text)]">
                 Home
               </li>
-              <li className="cursor-pointer px-4 py-2 rounded-full transition-all duration-300 ease-in-out hover:bg-[var(--color-primary-light)] hover:text-[var(--color-text)]">
+              <li 
+              onClick={() => handleScroll("about")}
+              className="cursor-pointer px-4 py-2 rounded-full transition-all duration-300 ease-in-out hover:bg-[var(--color-primary-light)] hover:text-[var(--color-text)]">
                 About
               </li>
-              <li className="cursor-pointer px-4 py-2 rounded-full transition-all duration-300 ease-in-out hover:bg-[var(--color-primary-light)] hover:text-[var(--color-text)]">
+              <li 
+              onClick={() => handleScroll("project")}
+              className="cursor-pointer px-4 py-2 rounded-full transition-all duration-300 ease-in-out hover:bg-[var(--color-primary-light)] hover:text-[var(--color-text)]">
                 Projects
               </li>
-              <li className="cursor-pointer px-4 py-2 rounded-full transition-all duration-300 ease-in-out hover:bg-[var(--color-primary-light)] hover:text-[var(--color-text)]">
+              <li 
+              onClick={() => handleScroll("contact")}
+              className="cursor-pointer px-4 py-2 rounded-full transition-all duration-300 ease-in-out hover:bg-[var(--color-primary-light)] hover:text-[var(--color-text)]">
                 Contact
               </li>
             </ul>
