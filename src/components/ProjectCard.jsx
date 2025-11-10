@@ -59,6 +59,17 @@ export const projectList = [
         live: "https://doyoulovemeak.netlify.app/",
         github: ""
     },
+    {
+    image: "src/assets/images/invoice.png",
+    title: "Invoice Generator",
+    technologies: ["React", "TailwindCSS", "jsPDF", "html2canvas"],
+    developer: "Akash Gupta",
+    description: "A professional invoice generator web app designed for IT service agencies and freelancers. It allows users to create, preview, and download invoices in PDF format for services like web development, app design, and e-commerce. Built with React and jsPDF for a smooth, real-time experience.",
+    status: "Completed",
+    rating: "9.5",
+    live: "https://invoice-generater-two.vercel.app/",
+    github: ""
+}
 ];
 
 const techColors = {
