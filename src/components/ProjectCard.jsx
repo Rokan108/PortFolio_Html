@@ -1,9 +1,14 @@
 import React from "react";
-import NotFound from "./NotFound";
 import { ExternalLink, Github } from "lucide-react";
+import portfolio from "../assets/images/portfolio.png";
+import autoscribe from "../assets/images/autoscribe.png";
+import chatpotal from "../assets/images/chatpotal.png";
+import speechtotext from "../assets/images/speechtotext.png";
+import doyouloveme from "../assets/images/doyouloveme.png";
+import invoice from "../assets/images/invoice.png";
 export const projectList = [
     {
-        image: "src/assets/images/portfolio.png",
+        image: portfolio,
         title: "Portfolio Website",
         technologies: ["React", "Tailwind", "Vite"],
         developer: "Akash Gupta",
@@ -14,7 +19,7 @@ export const projectList = [
         github: "",
     },
     {
-        image: "src/assets/images/autoscribe.png",
+        image: autoscribe,
         title: "AutoScribe",
         technologies: ["React", "FastAPI", "MongoDB"],
         developer: "Akash Gupta",
@@ -26,7 +31,7 @@ export const projectList = [
         github: "",
     },
     {
-        image: "src/assets/images/chatpotal.png",
+        image: chatpotal,
         title: "Chat Portal by Akash",
         technologies: ["React", "FastAPI", "Tailwind"],
         developer: "Akash Gupta",
@@ -38,7 +43,7 @@ export const projectList = [
         github: "https://github.com/akash/chatportal",
     },
     {
-        image: "src/assets/images/speechtotext.png",
+        image: speechtotext,
         title: "SpeechToTextJS",
         technologies: ["React", "JavaScript", "Netlify"],
         developer: "Akash Gupta",
@@ -49,7 +54,7 @@ export const projectList = [
         github: "",
     },
     {
-        image: "src/assets/images/doyouloveme.png",
+        image: doyouloveme,
         title: "DoYouLoveMeAK",
         technologies: ["React", "JavaScript", "Netlify"],
         developer: "Akash Gupta",
@@ -60,7 +65,7 @@ export const projectList = [
         github: ""
     },
     {
-    image: "src/assets/images/invoice.png",
+    image: invoice,
     title: "Invoice Generator",
     technologies: ["React", "TailwindCSS", "jsPDF", "html2canvas"],
     developer: "Akash Gupta",
