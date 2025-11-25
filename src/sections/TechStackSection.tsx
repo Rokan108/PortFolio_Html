@@ -89,6 +89,7 @@ const TechStackSection = () => {
             image={tech.image}
             title={tech.title}
             startDate={tech.startDate}
+            delay={index * 0.1}
           />
         ))}
       </div>
@@ -103,11 +104,10 @@ const TechStackSection = () => {
                 e.preventDefault();
                 handlePrevious();
               }}
-              className={`transition ${
-                currentPage === 1
+              className={`transition ${currentPage === 1
                   ? "opacity-50 cursor-not-allowed"
                   : "hover:scale-105 hover:text-[var(--color-primary)]"
-              }`}
+                }`}
             />
           </PaginationItem>
 
@@ -118,11 +118,10 @@ const TechStackSection = () => {
                 e.preventDefault();
                 handleNext();
               }}
-              className={`transition ${
-                currentPage === totalPages
+              className={`transition ${currentPage === totalPages
                   ? "opacity-50 cursor-not-allowed"
                   : "hover:scale-105 hover:text-[var(--color-primary)]"
-              }`}
+                }`}
             />
           </PaginationItem>
         </PaginationContent>
