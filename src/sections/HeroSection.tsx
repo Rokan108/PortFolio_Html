@@ -1,6 +1,7 @@
-import { useEffect, useState, useCallback, memo } from "react";
+import { memo } from "react";
 import akash from "@/assets/logo/white.svg"
 import SplitText from "@/components/reactbit/SplitText";
+import RotatingText from "@/components/RotatingText";
 
 // Move roles outside component to prevent recreation
 const roles = [
@@ -14,18 +15,6 @@ const roles = [
 ];
 
 const HeroSection = memo(() => {
-  const [currentRole, setCurrentRole] = useState(0);
-
-  // Memoized role rotation
-  const rotateRole = useCallback(() => {
-    setCurrentRole((prev) => (prev + 1) % roles.length);
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(rotateRole, 2000); // Slightly slower for better readability
-    return () => clearInterval(interval);
-  }, [rotateRole]);
-
   return (
     <section id="hero"
       className="relative flex flex-col-reverse sm:flex-row items-center sm:items-start justify-between 
@@ -39,11 +28,20 @@ const HeroSection = memo(() => {
           <span className="block text-[var(--color-accent)]">I'm Akash Gupta</span>
         </h1>
 
-        {/* Animated Role */}
-        <h2 className="text-2xl sm:text-3xl font-semibold mt-3 transition-all duration-500 ease-in-out text-[var(--color-primary)]">
-          <span className="relative inline-block animate-fade-in">
-            {roles[currentRole]}
-          </span>
+        {/* Animated Role with RotatingText */}
+        <h2 className="text-2xl sm:text-3xl font-semibold mt-3">
+          <RotatingText
+            texts={roles}
+            mainClassName="text-[var(--color-primary)] justify-center sm:justify-start"
+            staggerFrom="last"
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-120%" }}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden"
+            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            rotationInterval={2500}
+          />
         </h2>
 
         {/* Description */}

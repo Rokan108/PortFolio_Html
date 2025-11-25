@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import LightweightBackground from './components/LightweightBackground';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import HeroSection from './sections/HeroSection';
+import TargetCursor from './components/TargetCursor';
 
 // Lazy load heavy components for better initial load
 const Projects = lazy(() => import('./sections/Projects'));
@@ -20,6 +21,11 @@ const LoadingFallback = () => (
 const App = () => {
   return (
     <>
+      <TargetCursor
+        spinDuration={2}
+        hideDefaultCursor={true}
+        parallaxOn={true}
+      />
       <Navbar />
       <div className="relative min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="fixed inset-0 -z-10">
