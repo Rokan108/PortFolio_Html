@@ -27,7 +27,7 @@ export const projectList = [
             "An AI meeting assistant that transcribes and summarizes meetings.",
         status: "Ongoing",
         rating: "9.6",
-        live: "",
+        live: "https://autoscribee.vercel.app/",
         github: "",
     },
     {
