@@ -65,16 +65,16 @@ export const projectList = [
         github: ""
     },
     {
-    image: invoice,
-    title: "Invoice Generator",
-    technologies: ["React", "TailwindCSS", "jsPDF", "html2canvas"],
-    developer: "Akash Gupta",
-    description: "A professional invoice generator web app designed for IT service agencies and freelancers. It allows users to create, preview, and download invoices in PDF format for services like web development, app design, and e-commerce. Built with React and jsPDF for a smooth, real-time experience.",
-    status: "Completed",
-    rating: "9.5",
-    live: "https://invoice-generater-two.vercel.app/",
-    github: ""
-}
+        image: invoice,
+        title: "Invoice Generator",
+        technologies: ["React", "TailwindCSS", "jsPDF", "html2canvas"],
+        developer: "Akash Gupta",
+        description: "A professional invoice generator web app designed for IT service agencies and freelancers. It allows users to create, preview, and download invoices in PDF format for services like web development, app design, and e-commerce. Built with React and jsPDF for a smooth, real-time experience.",
+        status: "Completed",
+        rating: "9.5",
+        live: "https://invoice-generater-two.vercel.app/",
+        github: ""
+    }
 ];
 
 const techColors = {
@@ -86,7 +86,7 @@ const techColors = {
     default: "bg-gray-100 text-gray-600 border-gray-400",
 };
 
-const ProjectCard = ({
+const ProjectCard = React.memo(({
     image,
     title,
     technologies,
@@ -98,13 +98,20 @@ const ProjectCard = ({
     github,
 }) => {
     return (
-        <div className="relative group w-full max-w-[600px] sm:max-w-[500px] md:max-w-[550px] lg:max-w-[600px] flex-shrink-0 rounded-2xl p-[2px] bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-accent)] to-[var(--color-primary-light)] animate-border">
+        <div className="project-card relative group w-full max-w-[600px] sm:max-w-[500px] md:max-w-[550px] lg:max-w-[600px] flex-shrink-0 rounded-2xl p-[2px] bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-accent)] to-[var(--color-primary-light)] animate-border">
             {/* Inner Layer */}
             <div className="bg-transparent rounded-2xl p-4 sm:p-6 flex flex-col gap-4 justify-between transition-transform duration-500 group-hover:scale-[1.02] backdrop-blur-md">
                 {/* Image */}
                 {image && (
                     <div className="w-full aspect-video rounded-xl overflow-hidden border border-[var(--color-primary-light)]">
-                        <img src={image} alt={title} className="w-full h-full object-cover" />
+                        <img
+                            src={image}
+                            alt={title}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                            width="600"
+                            height="338"
+                        />
                     </div>
                 )}
 
@@ -196,6 +203,8 @@ const ProjectCard = ({
             </div>
         </div>
     );
-};
+});
+
+ProjectCard.displayName = 'ProjectCard';
 
 export default ProjectCard;

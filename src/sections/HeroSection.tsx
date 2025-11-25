@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, memo } from "react";
 import akash from "@/assets/logo/white.svg"
 import SplitText from "@/components/reactbit/SplitText";
 
+// Move roles outside component to prevent recreation
 const roles = [
   "💻 Web Developer",
   "⚡ Frontend Developer",
@@ -12,15 +13,18 @@ const roles = [
   "🧩 Problem Solver",
 ];
 
-const HeroSection = () => {
+const HeroSection = memo(() => {
   const [currentRole, setCurrentRole] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % roles.length);
-    }, 1500); // ⏱ smoother timing
-    return () => clearInterval(interval);
+  // Memoized role rotation
+  const rotateRole = useCallback(() => {
+    setCurrentRole((prev) => (prev + 1) % roles.length);
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(rotateRole, 2000); // Slightly slower for better readability
+    return () => clearInterval(interval);
+  }, [rotateRole]);
 
   return (
     <section id="hero"
@@ -32,7 +36,7 @@ const HeroSection = () => {
         {/* Greeting */}
         <h1 className="text-4xl sm:text-5xl font-bold text-[var(--color-primary-light)] mb-2 leading-tight">
           <SplitText text="👋 Hello!" />
-          <span className="block text-[var(--color-accent)]">I’m Akash Gupta</span>
+          <span className="block text-[var(--color-accent)]">I'm Akash Gupta</span>
         </h1>
 
         {/* Animated Role */}
@@ -44,7 +48,7 @@ const HeroSection = () => {
 
         {/* Description */}
         <p className="mt-6 text-base sm:text-lg text-[var(--color-text)] leading-relaxed">
-          I’m a passionate developer currently pursuing my{" "}
+          I'm a passionate developer currently pursuing my{" "}
           <strong>BSc in Information Technology</strong>. I love turning creative
           ideas into beautiful, responsive, and functional web experiences. My
           focus is on building modern web applications using{" "}
@@ -56,13 +60,18 @@ const HeroSection = () => {
       {/* 💠 Right (or Bottom on mobile) - Liquid Metal Logo */}
       <div className="flex justify-center items-center sm:justify-end sm:w-1/2 w-full">
         <img
-              src={akash}
-              alt={"Akash Gupta"}
-              className="object-contain w-80 h-80"
-            />
+          src={akash}
+          alt="Akash Gupta"
+          className="object-contain w-80 h-80"
+          loading="eager"
+          width="320"
+          height="320"
+        />
       </div>
     </section>
   );
-};
+});
+
+HeroSection.displayName = 'HeroSection';
 
 export default HeroSection;

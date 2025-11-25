@@ -4,14 +4,20 @@
 /* 🎨 AsuraComic Theme - Custom CSS Variables */
 :root {
   /* AsuraComic Color Palette */
-  --color-background: #0F0F1A;       /* Deep dark background */
-  --color-surface: #1A1A27;          /* Surface cards */
-  --color-primary: #7C3AED;          /* Purple primary */
+  --color-background: #0F0F1A;
+  /* Deep dark background */
+  --color-surface: #1A1A27;
+  /* Surface cards */
+  --color-primary: #7C3AED;
+  /* Purple primary */
   --color-primary-dark: #6D28D9;
   --color-primary-light: #A78BFA;
-  --color-accent: #22D3EE;           /* Neon blue accent */
-  --color-text: #F3F4F6;             /* Text white */
-  --color-text-secondary: #9CA3AF;   /* Soft gray */
+  --color-accent: #22D3EE;
+  /* Neon blue accent */
+  --color-text: #F3F4F6;
+  /* Text white */
+  --color-text-secondary: #9CA3AF;
+  /* Soft gray */
   --color-success: #22C55E;
   --color-error: #EF4444;
   --radius: 0.75rem;
@@ -55,14 +61,17 @@ html {
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--color-background);
 }
+
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
   border-radius: 10px;
   border: 2px solid var(--color-background);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, var(--color-accent), var(--color-primary));
 }
@@ -72,6 +81,7 @@ html {
   @apply bg-[var(--color-primary)] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300;
   box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
 }
+
 .btn-primary:hover {
   @apply bg-[var(--color-primary-dark)];
   box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
@@ -81,6 +91,7 @@ html {
 .btn-secondary {
   @apply bg-transparent border-2 border-[var(--color-accent)] text-[var(--color-accent)] font-semibold px-6 py-3 rounded-lg transition-all duration-300;
 }
+
 .btn-secondary:hover {
   @apply bg-[var(--color-accent)] text-[var(--color-background)];
   box-shadow: 0 0 25px rgba(34, 211, 238, 0.5);
@@ -91,6 +102,7 @@ html {
   @apply bg-[var(--color-surface)] rounded-xl shadow-lg p-6 transition-all duration-300;
   border: 1px solid rgba(124, 58, 237, 0.2);
 }
+
 .card:hover {
   @apply scale-[1.02];
   box-shadow: 0 0 25px rgba(124, 58, 237, 0.4);
@@ -113,7 +125,12 @@ html {
 }
 
 /* ✨ Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   color: var(--color-text);
   letter-spacing: -0.02em;
@@ -125,6 +142,7 @@ a {
   text-decoration: none;
   transition: all 0.3s ease;
 }
+
 a:hover {
   color: var(--color-primary-light);
 }
@@ -137,9 +155,11 @@ a:hover {
   transition: all 0.3s;
   border-bottom: 1px solid rgba(124, 58, 237, 0.3);
 }
+
 .navbar a {
   color: var(--color-text);
 }
+
 .navbar a:hover {
   color: var(--color-primary-light);
 }
@@ -153,9 +173,11 @@ a:hover {
   font-size: 0.95rem;
   border-top: 1px solid rgba(124, 58, 237, 0.3);
 }
+
 .footer a {
   color: var(--color-accent);
 }
+
 .footer a:hover {
   color: var(--color-primary-light);
 }
@@ -164,45 +186,57 @@ a:hover {
 
 /* Neon Glow Pulse */
 @keyframes neonGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 5px rgba(124, 58, 237, 0.5),
-                0 0 10px rgba(124, 58, 237, 0.3),
-                0 0 15px rgba(124, 58, 237, 0.2);
+      0 0 10px rgba(124, 58, 237, 0.3),
+      0 0 15px rgba(124, 58, 237, 0.2);
   }
+
   50% {
     box-shadow: 0 0 10px rgba(124, 58, 237, 0.8),
-                0 0 20px rgba(124, 58, 237, 0.6),
-                0 0 30px rgba(124, 58, 237, 0.4);
+      0 0 20px rgba(124, 58, 237, 0.6),
+      0 0 30px rgba(124, 58, 237, 0.4);
   }
 }
+
 .animate-neon-glow {
   animation: neonGlow 2s ease-in-out infinite;
 }
 
 /* Neon Border Pulse */
 @keyframes neonBorder {
-  0%, 100% {
+
+  0%,
+  100% {
     border-color: rgba(124, 58, 237, 0.5);
     box-shadow: 0 0 10px rgba(124, 58, 237, 0.3);
   }
+
   50% {
     border-color: rgba(124, 58, 237, 1);
     box-shadow: 0 0 20px rgba(124, 58, 237, 0.6);
   }
 }
+
 .animate-neon-border {
   animation: neonBorder 2s ease-in-out infinite;
 }
 
 /* Floating Animation */
 @keyframes floatParallax {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-20px);
   }
 }
+
 .animate-float {
   animation: floatParallax 3s ease-in-out infinite;
 }
@@ -212,17 +246,17 @@ a:hover {
   0% {
     background-position: -1000px 0;
   }
+
   100% {
     background-position: 1000px 0;
   }
 }
+
 .animate-shimmer {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(124, 58, 237, 0.3),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(124, 58, 237, 0.3),
+      transparent);
   background-size: 1000px 100%;
   animation: shimmer 3s infinite;
 }
@@ -233,20 +267,28 @@ a:hover {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 .animate-fade-in-up {
   animation: fadeInUp 0.8s ease-out;
 }
 
 /* Fade In */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
+
 .animate-fade-in {
   animation: fadeIn 0.6s ease-in-out;
 }
@@ -257,11 +299,13 @@ a:hover {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
+
 .animate-scale-in {
   animation: scaleIn 0.5s ease-out;
 }
@@ -272,11 +316,13 @@ a:hover {
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
+
 .animate-slide-in-left {
   animation: slideInLeft 0.6s ease-out;
 }
@@ -287,11 +333,13 @@ a:hover {
     opacity: 0;
     transform: translateX(50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
+
 .animate-slide-in-right {
   animation: slideInRight 0.6s ease-out;
 }
@@ -300,6 +348,7 @@ a:hover {
 .hover-glow {
   transition: all 0.3s ease;
 }
+
 .hover-glow:hover {
   box-shadow: 0 0 25px rgba(124, 58, 237, 0.5);
   transform: translateY(-3px);
@@ -308,14 +357,14 @@ a:hover {
 /* Neon Text */
 .neon-text {
   text-shadow: 0 0 10px rgba(124, 58, 237, 0.8),
-               0 0 20px rgba(124, 58, 237, 0.6),
-               0 0 30px rgba(124, 58, 237, 0.4);
+    0 0 20px rgba(124, 58, 237, 0.6),
+    0 0 30px rgba(124, 58, 237, 0.4);
 }
 
 .neon-text-cyan {
   text-shadow: 0 0 10px rgba(34, 211, 238, 0.8),
-               0 0 20px rgba(34, 211, 238, 0.6),
-               0 0 30px rgba(34, 211, 238, 0.4);
+    0 0 20px rgba(34, 211, 238, 0.6),
+    0 0 30px rgba(34, 211, 238, 0.4);
 }
 
 /* Gradient Text */
@@ -328,9 +377,82 @@ a:hover {
 
 /* Pulse Soft */
 @keyframes pulseSoft {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
 }
+
 .animate-pulse-soft {
   animation: pulseSoft 2s infinite ease-in-out;
+}
+
+/* Gradient Shift Animation - GPU Accelerated */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-shift {
+  animation: gradientShift 15s ease infinite;
+  will-change: background-position;
+  transform: translateZ(0);
+}
+
+/* Performance Optimizations */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Layout containment for better performance */
+.card,
+.project-card,
+.tech-card {
+  contain: layout style paint;
+}
+
+/* Content visibility for off-screen optimization */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* GPU acceleration hints */
+.animate-float,
+.animate-neon-glow,
+.animate-neon-border,
+.hover-glow {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize images */
+img {
+  content-visibility: auto;
+  will-change: auto;
 }

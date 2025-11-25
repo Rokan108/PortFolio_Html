@@ -1,22 +1,42 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sparkles } from "lucide-react";
 import akash from "../assets/logo/white.svg";
+
+// Memoized menu items (moved outside component to prevent recreation)
+const MENU_ITEMS = [
+  { label: "Home", id: "hero" },
+  { label: "Projects", id: "project" },
+  { label: "Skills", id: "techstack" },
+  { label: "About", id: "about" },
+  { label: "Contact", id: "contact" },
+] as const;
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Handle scroll effect
+  // Debounced scroll handler for better performance
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener("scroll", handleScroll);
+
+    // Passive listener for better scroll performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (sectionId: string) => {
+  // Memoized navigation handler
+  const handleNavClick = useCallback((sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
       const offset = 80; // Navbar height
@@ -29,15 +49,10 @@ const Navbar = () => {
       });
     }
     setMenuOpen(false);
-  };
+  }, []);
 
-  const menuItems = [
-    { label: "Home", id: "hero" },
-    { label: "Projects", id: "project" },
-    { label: "Skills", id: "techstack" },
-    { label: "About", id: "about" },
-    { label: "Contact", id: "contact" },
-  ];
+  // Memoized menu items for map operations
+  const menuItems = useMemo(() => MENU_ITEMS, []);
 
   return (
     <motion.nav
@@ -77,6 +92,7 @@ const Navbar = () => {
                   src={akash}
                   alt="Akash Gupta Logo"
                   className="w-8 h-8 object-contain"
+                  loading="eager"
                 />
               </div>
             </motion.div>

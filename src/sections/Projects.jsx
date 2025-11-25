@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import ProjectCard, { projectList } from "@/components/ProjectCard";
 
 const Projects = () => {
@@ -9,11 +9,11 @@ const Projects = () => {
   const isDragging = useRef(false);
   const dragStartX = useRef(0);
 
-  // Auto slide forward only (no jump back)
+  // Auto slide forward only (infinite loop)
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) =>
-        prev === projectList.length - 1 ? prev : prev + 1
+        prev === projectList.length - 1 ? 0 : prev + 1
       );
     }, 5000);
     return () => clearInterval(interval);
@@ -30,32 +30,43 @@ const Projects = () => {
     }
   }, [activeIndex]);
 
+  // Memoized handlers for better performance
+  const handleNext = useCallback(() => {
+    setActiveIndex((prev) =>
+      prev === projectList.length - 1 ? 0 : prev + 1
+    );
+  }, []);
+
+  const handlePrevious = useCallback(() => {
+    setActiveIndex((prev) => (prev === 0 ? projectList.length - 1 : prev - 1));
+  }, []);
+
   // Handle touch start
-  const handleTouchStart = (e) => {
+  const handleTouchStart = useCallback((e) => {
     touchStartX.current = e.touches[0].clientX;
-  };
+  }, []);
 
   // Handle touch move
-  const handleTouchMove = (e) => {
+  const handleTouchMove = useCallback((e) => {
     touchEndX.current = e.touches[0].clientX;
-  };
+  }, []);
 
   // Handle touch end
-  const handleTouchEnd = () => {
+  const handleTouchEnd = useCallback(() => {
     const distance = touchEndX.current - touchStartX.current;
     if (Math.abs(distance) > 50) {
       if (distance < 0) handleNext();
       else handlePrevious();
     }
-  };
+  }, [handleNext, handlePrevious]);
 
   // Handle mouse drag for desktop
-  const handleMouseDown = (e) => {
+  const handleMouseDown = useCallback((e) => {
     isDragging.current = true;
     dragStartX.current = e.clientX;
-  };
+  }, []);
 
-  const handleMouseUp = (e) => {
+  const handleMouseUp = useCallback((e) => {
     if (!isDragging.current) return;
     const distance = e.clientX - dragStartX.current;
     if (Math.abs(distance) > 50) {
@@ -63,21 +74,11 @@ const Projects = () => {
       else handlePrevious();
     }
     isDragging.current = false;
-  };
+  }, [handleNext, handlePrevious]);
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     isDragging.current = false;
-  };
-
-  const handleNext = () => {
-    setActiveIndex((prev) =>
-      prev === projectList.length - 1 ? prev : prev + 1
-    );
-  };
-
-  const handlePrevious = () => {
-    setActiveIndex((prev) => (prev === 0 ? prev : prev - 1));
-  };
+  }, []);
 
   return (
     <section id="project"
@@ -109,9 +110,8 @@ const Projects = () => {
           {projectList.map((project, index) => (
             <div
               key={index}
-              className={`flex justify-center items-center w-full flex-shrink-0 px-2 transition-all ${
-                activeIndex === index ? "active-card scale-100" : "scale-95 opacity-90"
-              }`}
+              className={`flex justify-center items-center w-full flex-shrink-0 px-2 transition-all ${activeIndex === index ? "active-card scale-100" : "scale-95 opacity-90"
+                }`}
             >
               <div className="w-[95%] sm:w-[85%] md:w-[70%] lg:w-[55%] xl:w-[45%] flex justify-center">
                 <ProjectCard {...project} />
@@ -127,11 +127,10 @@ const Projects = () => {
           <button
             key={index}
             onClick={() => setActiveIndex(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              activeIndex === index
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${activeIndex === index
                 ? "bg-[var(--color-primary)] scale-110 shadow-md shadow-[var(--color-primary-light)]"
                 : "bg-gray-400 hover:bg-gray-500"
-            }`}
+              }`}
           ></button>
         ))}
       </div>
