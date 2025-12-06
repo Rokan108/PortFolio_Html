@@ -3,24 +3,32 @@
 
 /* 🎨 AsuraComic Theme - Custom CSS Variables */
 :root {
-  /* AsuraComic Color Palette */
-  --color-background: #0F0F1A;
-  /* Deep dark background */
-  --color-surface: #1A1A27;
-  /* Surface cards */
-  --color-primary: #7C3AED;
-  /* Purple primary */
-  --color-primary-dark: #6D28D9;
-  --color-primary-light: #A78BFA;
-  --color-accent: #22D3EE;
-  /* Neon blue accent */
-  --color-text: #F3F4F6;
+  /* AsuraComic Color Palette - Transformed */
+  --color-background: #1F1C19;
+  /* Primary Dark Espresso */
+  --color-surface: #1F1C19;
+  /* Dark Espresso (Surface) */
+  --color-surface-hover: #2A2624;
+  /* slightly lighter for hover/distinct surfaces */
+  --color-primary: #EAC23F;
+  /* Primary Gold */
+  --color-primary-dark: #C4A028;
+  /* Darker Gold for hover */
+  --color-primary-light: #F2D46F;
+  /* Lighter Gold */
+  --color-accent: #EAC23F;
+  /* Gold Accent */
+  --color-text: #FFFFFF;
   /* Text white */
-  --color-text-secondary: #9CA3AF;
-  /* Soft gray */
+  --color-text-secondary: #D1D1D1;
+  /* Soft gray/white */
   --color-success: #22C55E;
   --color-error: #EF4444;
   --radius: 0.75rem;
+
+  /* Font Families */
+  --font-primary: 'IM Fell Double Pica SC', Georgia, 'Times New Roman', serif;
+  --font-secondary: 'Noto Emoji', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Tailwind compatibility */
   --background: var(--color-background);
@@ -39,16 +47,21 @@
 body {
   background-color: var(--color-background);
   color: var(--color-text);
-  font-family: 'Inter', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-secondary);
   margin: 0;
   padding: 0;
   transition: background-color 0.3s, color 0.3s;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* 🖱️ Smooth Scrolling */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  /* Account for fixed navbar */
 }
 
 /* 🌟 Text Selection */
@@ -79,12 +92,12 @@ html {
 /* 🔘 Buttons */
 .btn-primary {
   @apply bg-[var(--color-primary)] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300;
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 0 20px rgba(234, 194, 63, 0.3);
 }
 
 .btn-primary:hover {
   @apply bg-[var(--color-primary-dark)];
-  box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
+  box-shadow: 0 0 30px rgba(234, 194, 63, 0.6);
   transform: translateY(-2px);
 }
 
@@ -94,34 +107,34 @@ html {
 
 .btn-secondary:hover {
   @apply bg-[var(--color-accent)] text-[var(--color-background)];
-  box-shadow: 0 0 25px rgba(34, 211, 238, 0.5);
+  box-shadow: 0 0 25px rgba(234, 194, 63, 0.5);
 }
 
 /* 🧾 Cards */
 .card {
   @apply bg-[var(--color-surface)] rounded-xl shadow-lg p-6 transition-all duration-300;
-  border: 1px solid rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(234, 194, 63, 0.2);
 }
 
 .card:hover {
   @apply scale-[1.02];
-  box-shadow: 0 0 25px rgba(124, 58, 237, 0.4);
+  box-shadow: 0 0 25px rgba(234, 194, 63, 0.4);
   border-color: var(--color-primary);
 }
 
 /* 💎 Glassmorphism */
 .glass {
-  background: rgba(26, 26, 39, 0.7);
+  background: rgba(31, 28, 25, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(124, 58, 237, 0.3);
+  border: 1px solid rgba(234, 194, 63, 0.3);
 }
 
 .glass-strong {
-  background: rgba(26, 26, 39, 0.85);
+  background: rgba(31, 28, 25, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(124, 58, 237, 0.5);
+  border: 1px solid rgba(234, 194, 63, 0.5);
 }
 
 /* ✨ Headings */
@@ -131,9 +144,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
+  font-family: var(--font-primary);
+  font-weight: 400;
   color: var(--color-text);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
 }
 
 /* 🧩 Links */
@@ -149,11 +163,11 @@ a:hover {
 
 /* 🌑 Navbar */
 .navbar {
-  background: rgba(15, 15, 26, 0.8);
+  background: rgba(31, 28, 25, 0.8);
   backdrop-filter: blur(10px);
   color: var(--color-text);
   transition: all 0.3s;
-  border-bottom: 1px solid rgba(124, 58, 237, 0.3);
+  border-bottom: 1px solid rgba(234, 194, 63, 0.3);
 }
 
 .navbar a {
@@ -166,12 +180,12 @@ a:hover {
 
 /* ⚫ Footer */
 .footer {
-  background-color: #0b0b13;
+  background-color: #1F1C19;
   color: var(--color-text);
   text-align: center;
   padding: 2rem 0;
   font-size: 0.95rem;
-  border-top: 1px solid rgba(124, 58, 237, 0.3);
+  border-top: 1px solid rgba(234, 194, 63, 0.3);
 }
 
 .footer a {
@@ -189,15 +203,15 @@ a:hover {
 
   0%,
   100% {
-    box-shadow: 0 0 5px rgba(124, 58, 237, 0.5),
-      0 0 10px rgba(124, 58, 237, 0.3),
-      0 0 15px rgba(124, 58, 237, 0.2);
+    box-shadow: 0 0 5px rgba(234, 194, 63, 0.5),
+      0 0 10px rgba(234, 194, 63, 0.3),
+      0 0 15px rgba(234, 194, 63, 0.2);
   }
 
   50% {
-    box-shadow: 0 0 10px rgba(124, 58, 237, 0.8),
-      0 0 20px rgba(124, 58, 237, 0.6),
-      0 0 30px rgba(124, 58, 237, 0.4);
+    box-shadow: 0 0 10px rgba(234, 194, 63, 0.8),
+      0 0 20px rgba(234, 194, 63, 0.6),
+      0 0 30px rgba(234, 194, 63, 0.4);
   }
 }
 
@@ -210,13 +224,13 @@ a:hover {
 
   0%,
   100% {
-    border-color: rgba(124, 58, 237, 0.5);
-    box-shadow: 0 0 10px rgba(124, 58, 237, 0.3);
+    border-color: rgba(234, 194, 63, 0.5);
+    box-shadow: 0 0 10px rgba(234, 194, 63, 0.3);
   }
 
   50% {
-    border-color: rgba(124, 58, 237, 1);
-    box-shadow: 0 0 20px rgba(124, 58, 237, 0.6);
+    border-color: rgba(234, 194, 63, 1);
+    box-shadow: 0 0 20px rgba(234, 194, 63, 0.6);
   }
 }
 
@@ -255,7 +269,7 @@ a:hover {
 .animate-shimmer {
   background: linear-gradient(90deg,
       transparent,
-      rgba(124, 58, 237, 0.3),
+      rgba(234, 194, 63, 0.3),
       transparent);
   background-size: 1000px 100%;
   animation: shimmer 3s infinite;
@@ -350,21 +364,21 @@ a:hover {
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 25px rgba(124, 58, 237, 0.5);
+  box-shadow: 0 0 25px rgba(234, 194, 63, 0.5);
   transform: translateY(-3px);
 }
 
 /* Neon Text */
 .neon-text {
-  text-shadow: 0 0 10px rgba(124, 58, 237, 0.8),
-    0 0 20px rgba(124, 58, 237, 0.6),
-    0 0 30px rgba(124, 58, 237, 0.4);
+  text-shadow: 0 0 10px rgba(234, 194, 63, 0.8),
+    0 0 20px rgba(234, 194, 63, 0.6),
+    0 0 30px rgba(234, 194, 63, 0.4);
 }
 
 .neon-text-cyan {
-  text-shadow: 0 0 10px rgba(34, 211, 238, 0.8),
-    0 0 20px rgba(34, 211, 238, 0.6),
-    0 0 30px rgba(34, 211, 238, 0.4);
+  text-shadow: 0 0 10px rgba(234, 194, 63, 0.8),
+    0 0 20px rgba(234, 194, 63, 0.6),
+    0 0 30px rgba(234, 194, 63, 0.4);
 }
 
 /* Gradient Text */
@@ -450,7 +464,7 @@ a:hover {
 .animate-shimmer {
   background: linear-gradient(90deg,
       transparent,
-      rgba(124, 58, 237, 0.3),
+      rgba(234, 194, 63, 0.3),
       transparent);
   background-size: 1000px 100%;
   animation: shimmer 3s infinite;
@@ -545,21 +559,21 @@ a:hover {
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 25px rgba(124, 58, 237, 0.5);
+  box-shadow: 0 0 25px rgba(234, 194, 63, 0.5);
   transform: translateY(-3px);
 }
 
 /* Neon Text */
 .neon-text {
-  text-shadow: 0 0 10px rgba(124, 58, 237, 0.8),
-    0 0 20px rgba(124, 58, 237, 0.6),
-    0 0 30px rgba(124, 58, 237, 0.4);
+  text-shadow: 0 0 10px rgba(234, 194, 63, 0.8),
+    0 0 20px rgba(234, 194, 63, 0.6),
+    0 0 30px rgba(234, 194, 63, 0.4);
 }
 
 .neon-text-cyan {
-  text-shadow: 0 0 10px rgba(34, 211, 238, 0.8),
-    0 0 20px rgba(34, 211, 238, 0.6),
-    0 0 30px rgba(34, 211, 238, 0.4);
+  text-shadow: 0 0 10px rgba(234, 194, 63, 0.8),
+    0 0 20px rgba(234, 194, 63, 0.6),
+    0 0 30px rgba(234, 194, 63, 0.4);
 }
 
 /* Gradient Text */

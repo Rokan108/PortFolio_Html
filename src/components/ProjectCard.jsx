@@ -77,17 +77,17 @@ export const projectList = [
 ];
 
 const techColors = {
-    React: "bg-blue-100 text-blue-600 border-blue-400",
-    Tailwind: "bg-sky-100 text-sky-600 border-sky-400",
-    TailwindCSS: "bg-sky-100 text-sky-600 border-sky-400",
-    Vite: "bg-yellow-100 text-yellow-600 border-yellow-400",
-    FastAPI: "bg-emerald-100 text-emerald-600 border-emerald-400",
-    MongoDB: "bg-green-100 text-green-600 border-green-400",
-    JavaScript: "bg-yellow-100 text-yellow-600 border-yellow-400",
-    Netlify: "bg-teal-100 text-teal-600 border-teal-400",
-    jsPDF: "bg-red-100 text-red-600 border-red-400",
-    html2canvas: "bg-orange-100 text-orange-600 border-orange-400",
-    default: "bg-gray-100 text-gray-600 border-gray-400",
+    React: "bg-[var(--color-primary)]/10 text-[var(--color-primary)] border-[var(--color-primary)]/30",
+    Tailwind: "bg-[var(--color-primary)]/10 text-[var(--color-primary)] border-[var(--color-primary)]/30",
+    TailwindCSS: "bg-[var(--color-primary)]/10 text-[var(--color-primary)] border-[var(--color-primary)]/30",
+    Vite: "bg-[var(--color-primary)]/10 text-[var(--color-primary)] border-[var(--color-primary)]/30",
+    FastAPI: "bg-[var(--color-primary)]/10 text-[var(--color-primary)] border-[var(--color-primary)]/30",
+    MongoDB: "bg-[var(--color-primary)]/10 text-[var(--color-primary)] border-[var(--color-primary)]/30",
+    JavaScript: "bg-[var(--color-primary)]/10 text-[var(--color-primary)] border-[var(--color-primary)]/30",
+    Netlify: "bg-[var(--color-primary)]/10 text-[var(--color-primary)] border-[var(--color-primary)]/30",
+    jsPDF: "bg-[var(--color-primary)]/10 text-[var(--color-primary)] border-[var(--color-primary)]/30",
+    html2canvas: "bg-[var(--color-primary)]/10 text-[var(--color-primary)] border-[var(--color-primary)]/30",
+    default: "bg-[var(--color-primary)]/10 text-[var(--color-text)] border-[var(--color-primary)]/30",
 };
 
 const ProjectCard = React.memo(({
@@ -102,7 +102,7 @@ const ProjectCard = React.memo(({
     github,
 }) => {
     return (
-        <div className="project-card cursor-target w-full max-w-md bg-[var(--color-surface)] rounded-2xl overflow-hidden border-2 border-[var(--color-primary)]/30 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(124,58,237,0.4)] hover:border-[var(--color-primary)]">
+        <div className="project-card cursor-target w-full max-w-md bg-[var(--color-surface)] rounded-2xl overflow-hidden border-2 border-[var(--color-primary)]/30 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(234,194,63,0.4)] hover:border-[var(--color-primary)]">
             {/* Image */}
             {image && (
                 <div className="w-full aspect-video overflow-hidden">
@@ -124,7 +124,7 @@ const ProjectCard = React.memo(({
                     <h2 className="text-xl font-bold text-[var(--color-text)] line-clamp-2 flex-1">
                         {title}
                     </h2>
-                    <div className="flex items-center gap-1 text-yellow-500 text-sm flex-shrink-0">
+                    <div className="flex items-center gap-1 text-[var(--color-primary)] text-sm flex-shrink-0">
                         <span>⭐</span>
                         <span className="font-semibold">{rating}</span>
                     </div>
@@ -152,13 +152,13 @@ const ProjectCard = React.memo(({
 
                 {/* Developer + Status */}
                 <div className="flex flex-wrap items-center gap-2">
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-gray-100 text-gray-700 border-gray-400">
+                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-[var(--color-surface-hover)] text-[var(--color-text)] border-[var(--color-primary)]/30">
                         👨‍💻 {developer}
                     </span>
                     <span
                         className={`px-2 py-1 text-xs font-medium border rounded-full ${status === "Completed"
-                            ? "bg-green-100 text-green-700 border-green-400"
-                            : "bg-yellow-100 text-yellow-700 border-yellow-400"
+                            ? "bg-green-900/30 text-green-400 border-green-800"
+                            : "bg-yellow-900/30 text-yellow-400 border-yellow-800"
                             }`}
                     >
                         🚧 {status}

@@ -30,8 +30,8 @@ const TechStackCard: FC<TechStackCardProps> = memo(({ image, title, startDate, d
     <motion.div
       className="
         relative group
-        bg-white/80 backdrop-blur-sm
-        rounded-2xl
+        bg-[#1F1C19]/80 backdrop-blur-sm
+        border border-[var(--color-primary)]/20
         p-6
         shadow-[0_2px_8px_rgba(0,0,0,0.04)]
         hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]
@@ -56,7 +56,7 @@ const TechStackCard: FC<TechStackCardProps> = memo(({ image, title, startDate, d
       {/* Subtle gradient overlay on hover */}
       <div className="
         absolute inset-0 
-        bg-gradient-to-br from-white/50 to-transparent 
+        bg-gradient-to-br from-[var(--color-primary)]/10 to-transparent 
         opacity-0 group-hover:opacity-100 
         transition-opacity duration-500
         pointer-events-none
@@ -65,7 +65,7 @@ const TechStackCard: FC<TechStackCardProps> = memo(({ image, title, startDate, d
       {/* Soft glow effect on hover */}
       <div className="
         absolute -inset-[1px] 
-        bg-gradient-to-br from-blue-100/40 via-purple-100/40 to-pink-100/40
+        bg-gradient-to-br from-[var(--color-primary)]/20 via-[var(--color-primary)]/10 to-transparent
         rounded-2xl
         opacity-0 group-hover:opacity-100
         blur-xl
@@ -80,8 +80,8 @@ const TechStackCard: FC<TechStackCardProps> = memo(({ image, title, startDate, d
           className="
             w-20 h-20
             flex items-center justify-center
-            bg-gradient-to-br from-gray-50 to-gray-100/50
-            rounded-xl
+            bg-[var(--color-surface-hover)]
+            border border-[var(--color-primary)]/10
             shadow-sm
             group-hover:shadow-md
             transition-shadow duration-300
@@ -109,8 +109,8 @@ const TechStackCard: FC<TechStackCardProps> = memo(({ image, title, startDate, d
         {/* Tech Name */}
         <h3 className="
           text-xl font-semibold 
-          text-gray-800
-          group-hover:text-gray-900
+          text-[var(--color-text)]
+          group-hover:text-[var(--color-primary)]
           transition-colors duration-300
         ">
           {title}
@@ -120,26 +120,26 @@ const TechStackCard: FC<TechStackCardProps> = memo(({ image, title, startDate, d
         <div className=" cursor-target
           inline-flex items-center gap-2
           px-4 py-2
-          bg-gradient-to-r from-blue-50 to-purple-50
+          bg-[var(--color-primary)]/10
           rounded-full
-          border border-gray-100
+          border border-[var(--color-primary)]/30
         ">
-          <span className="text-sm font-medium text-gray-700">
+          <span className="text-sm font-medium text-[var(--color-primary)]">
             Level {dateInfo.currentLevel}
           </span>
-          <span className="text-xs text-gray-500">•</span>
-          <span className="text-xs text-gray-600">Active</span>
+          <span className="text-xs text-[var(--color-primary)]/60">•</span>
+          <span className="text-xs text-[var(--color-primary)]/80">Active</span>
         </div>
 
         {/* Learning Duration */}
         <div className="
-          text-sm text-gray-600
+          text-sm text-[var(--color-text-secondary)]
           leading-relaxed
-          group-hover:text-gray-700
+          group-hover:text-[var(--color-text)]
           transition-colors duration-300
         ">
           <p className="font-medium">Learning since {dateInfo.formattedDate}</p>
-          <p className="text-xs text-gray-500 mt-1">{dateInfo.days} days of experience</p>
+          <p className="text-xs text-[var(--color-text-secondary)]/70 mt-1">{dateInfo.days} days of experience</p>
         </div>
       </div>
 
@@ -148,7 +148,7 @@ const TechStackCard: FC<TechStackCardProps> = memo(({ image, title, startDate, d
         className="
           absolute bottom-0 left-0 right-0
           h-[2px]
-          bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400
+          bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-primary-light)] to-[var(--color-primary)]
           opacity-0 group-hover:opacity-100
           transition-opacity duration-500
         "
